@@ -1,23 +1,129 @@
-.header {
+$color-red: #F25A33;
+$color-white: #FAFAFA;
+$color-grey: #A8A8A8;
+$color-more-grey: #888888;
+$color-green: #00BD18;
+$color-blue: #4EB4DD;
+$color-dark: #414141;
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans');
+
+body {
+  font-family: 'Merriweather Sans', sans-serif;
 }
 
 .container {
-  display: flex;
-  width: 320px;
-  align-items: center;
-  .donate {
-    flex: 1;
+  width: 390px;
+
+  .box {
+    flex: 1 1 auto;
+    border: 1px solid $color-grey;
+    margin: 20px 10px;
+    color: $color-more-grey;
+
     #myProgress {
       width: 100%;
-      background-color: grey;
+      background-color: $color-white;
+      border: 1px solid $color-grey;
     }
     #myBar {
-      width: 10%;
-      height: 30px;
-      background-color: #4CAF50;
+      width: 70%;
+      height: 15px;
+      background-color: $color-red;
       text-align: center; /* To center it horizontally (if you want) */
       line-height: 30px; /* To center it vertically */
       color: white;
+    }
+  }
+
+  .notification {
+    position: relative;
+    background: $color-dark;
+    color: $color-white;
+    margin: 0 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .notification:after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+    border-top: 10px solid $color-dark;
+    bottom: -10px;
+  }
+
+  .donate {
+    padding: 20px;
+  }
+
+  .button--link {
+    border: none;
+    background: none;
+    color: $color-blue;
+    font-style: italic;
+    font-size: 16px;
+
+  }
+
+  .button--success {
+    height: 50px;
+    font-weight: bold;
+    background: $color-green;
+    border: none;
+    color: $color-white;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  .button--success:hover {
+    opacity: 0.7;
+  }
+
+  .button--standard {
+    height: 50px;
+    font-weight: bold;
+    background: $color-white;
+    border: none;
+    color: $color-more-grey;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid $color-grey;
+  }
+
+  .info {
+    color: $color-red;
+    font-weight: bold;
+  }
+
+  .flex-panel {
+    display: flex;
+    button {
+      flex: 1 1 auto;
+      margin: 0 10px;
+      font-size: 16px;
+    }
+
+    input {
+      position: relative;
+      flex: 1 1 auto;
+      margin: 0 10px;
+      margin-left: 0;
+      padding-left: 40px;
+      box-sizing: border-box;
+      width: 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    input:after {
+      content: '$';
+      position: absolute;
+      font-size: 16px;
     }
   }
 }
