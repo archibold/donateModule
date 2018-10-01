@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import style from './index.scss';
-import storage from './storage.js';
+import services from './services.js';
 
 function component() {
   let element = document.createElement('div');
