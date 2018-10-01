@@ -1,7 +1,23 @@
 .header {
 }
 
-.content {
-  .box {
+.container {
+  display: flex;
+  width: 320px;
+  align-items: center;
+  .donate {
+    flex: 1;
+    #myProgress {
+      width: 100%;
+      background-color: grey;
+    }
+    #myBar {
+      width: 10%;
+      height: 30px;
+      background-color: #4CAF50;
+      text-align: center; /* To center it horizontally (if you want) */
+      line-height: 30px; /* To center it vertically */
+      color: white;
+    }
   }
 }
