@@ -1,13 +1,21 @@
-import _ from 'lodash';
 import style from './index.scss';
 import services from './services.js';
 
-function component() {
-  let element = document.createElement('div');
-
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  return element;
+window.onGiveNow = (e) => {
+  const [input] = e.target.children
+  services.giveNow(input.value);
+  e.preventDefault();
 }
 
-document.body.appendChild(component());
+window.onSaveToStorage = (e) => {
+  services.saveToStorage();
+}
+
+window.onTellYourFriends = () => {
+  const mailToLink = "mailto:?subject=New Donate module &body=Check this new donate module";
+  window.location.href = mailToLink;
+}
+
+window.onShowInfo = () => {
+
+}

@@ -18,15 +18,15 @@
         <p>Only 3 days left to fund this project.</p>
         <p>Join the 42 other donors who have already supported this project. Every dollar helps.</p>
         <div>
-          <form>
+          <form onsubmit="onGiveNow(event)">
             <input min="1" step="1" type="number" value="50"/>
             <button type="submit">Give Now</button>
           </form>
         </div>
         <button>Why give $50?</button>
         <div>
-          <button>Save for later</button>
-          <button>Tell your friends</button>
+          <button onClick="onSaveToStorage()">Save for later</button>
+          <button onClick="onTellYourFriends()">Tell your friends</button>
         </div>
       </div>
     </div>
