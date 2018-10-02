@@ -10,6 +10,7 @@ window.onGiveNow = (e) => {
 
   services.setValue(+input.value);
   changeProgressBar();
+  showNotification('thank-you-notification');
   e.preventDefault();
 }
 

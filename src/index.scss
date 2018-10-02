@@ -9,6 +9,11 @@ $color-dark: #414141;
 
 body {
   font-family: 'Merriweather Sans', sans-serif;
+  height: 95vh;
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -23,38 +28,42 @@ body {
     text-align: center;
     border-radius: 5px;
     z-index: 10;
-  }
 
-  .notification-up {
-    &:after {
-      position: absolute;
-      content: '';
-      width: 0;
-      height: 0;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
+    &-up {
+      &:after {
+        position: absolute;
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
 
-      border-top: 10px solid $color-dark;
-      bottom: -10px;
+        border-top: 10px solid $color-dark;
+        bottom: -10px;
+      }
     }
-  }
 
-  .notification-down {
-    display: none;
-    position: absolute;
-    bottom: -80px;
-
-    &:after {
+    &-down {
+      display: none;
       position: absolute;
-      content: '';
-      width: 0;
-      height: 0;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
+      bottom: -80px;
 
-      border-bottom: 10px solid $color-dark;
-      top: -10px;
-      left: 5px;
+      &:after {
+        position: absolute;
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+
+        border-bottom: 10px solid $color-dark;
+        top: -10px;
+        left: 5px;
+      }
+    }
+
+    &-right {
+      right: 0;
     }
   }
 
@@ -90,7 +99,7 @@ body {
       }
 
       .donate-value {
-        margin-right: 10px;
+        margin-right: 20px;
         border: 1px solid $color-grey;
         border-radius: 5px;
         display: inherit;
