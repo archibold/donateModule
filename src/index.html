@@ -9,7 +9,7 @@
   <body>
     <div class="container">
       <div class="notification">
-        <b>$167</b> still needed for this project
+        <b>$<span id="stillNeed">167<span></b> still needed for this project
       </div>
       <div class="box">
         <div id="myProgress">
@@ -20,15 +20,22 @@
           <p>Join the <b>42</b> other donors who have already supported this project. Every dollar helps.</p>
           <div>
             <form class="flex-panel" onsubmit="onGiveNow(event)">
-              <input min="1" step="1" type="number" value="50"/>
+              <div class="input">
+                <div class="input-icon">$</div>
+                <input min="1" step="1" type="number" value="50"/>
+              </div>
               <button class="button--success" type="submit">Give Now</button>
             </form>
           </div>
-          <button class="button--link" onClick="onShowInfo()">Why give $50?</button>
+          <div class="button-info-panel">
+            <button class="button--link" onClick="onShowInfo()">Why give $50?</button>
+            <div id="answer-notification" class="save-notification">Lorem Ipsum</div>
+          </div>
         </div>
       </div>
-      <div class="flex-panel">
+      <div class="flex-panel button-panel">
         <button class="button--standard" onClick="onSaveToStorage()">Save for later</button>
+        <div id="save-notification" class="save-notification">Saved</div>
         <button class="button--standard"  onClick="onTellYourFriends()">Tell your friends</button>
       </div>
     </div>

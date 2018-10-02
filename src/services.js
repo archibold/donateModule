@@ -27,14 +27,32 @@ const services = () => {
   init();
 
   const saveToStorage = () => {
+    storage.setItem('target', STATE.target);
+    storage.setItem('value', STATE.value);
+
+    return true;
   }
 
-  const giveNow = () => {
+  const getStorage = () => {
+    return {
+      target: storage.getItem('target'),
+      value: storage.getItem('value')
+    }
+  }
+
+  const setValue = (value) => {
+    STATE.value = +STATE.value + value;
+    if(STATE.value >  INIT_STATE.target) {
+        STATE.value = STATE.target;
+    }
+
+    storage.setItem('value', +STATE.value);
   }
 
   return {
     saveToStorage,
-    giveNow
+    getStorage,
+    setValue
   }
 }
 

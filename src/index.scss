@@ -26,7 +26,7 @@ body {
       border: 1px solid $color-grey;
     }
     #myBar {
-      width: 70%;
+      // width: 70%;
       height: 15px;
       background-color: $color-red;
       text-align: center; /* To center it horizontally (if you want) */
@@ -102,28 +102,70 @@ body {
 
   .flex-panel {
     display: flex;
+    position: relative;
+
     button {
-      flex: 1 1 auto;
-      margin: 0 10px;
+      flex: 1;
       font-size: 16px;
     }
 
-    input {
-      position: relative;
-      flex: 1 1 auto;
-      margin: 0 10px;
-      margin-left: 0;
-      padding-left: 40px;
-      box-sizing: border-box;
-      width: 0;
-      font-size: 20px;
-      font-weight: bold;
-    }
+    .input {
+      border: 1px solid $color-grey;
+      border-radius: 5px;
+      display: inherit;
+      flex: 1;
+      overflow: hidden;
 
-    input:after {
-      content: '$';
-      position: absolute;
-      font-size: 16px;
+      &-icon {
+        padding-left: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+      }
+
+      input {
+        border: none;
+        font-size: 20px;
+        font-weight: bold;
+      }
     }
   }
+
+  .button-info-panel {
+    position: relative;
+    margin-top: 10px;
+  }
+
+  .button-panel {
+    margin: 0 10px;
+  }
+
+  .save-notification {
+    display: none;
+    position: absolute;
+    bottom: -80px;
+    background: $color-dark;
+    color: $color-white;
+    margin: 0 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    z-index: 10;
+  }
+
+
+  .save-notification:after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+    border-bottom: 10px solid $color-dark;
+    top: -10px;
+    left: 5px;
+  }
+
 }
