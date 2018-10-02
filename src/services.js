@@ -10,33 +10,21 @@ const services = () => {
     target: INIT_STATE.target,
     value: INIT_STATE.value,
   }
+  const isInit = storage.getItem('isInit');
 
-  const init = () => {
-    const isInit = storage.getItem('isInit');
-
-    if (!isInit) {
-      storage.setItem('isInit', true);
-      storage.setItem('target', INIT_STATE.target);
-      storage.setItem('value', INIT_STATE.value);
-    } else {
-      STATE.target = storage.getItem('target');
-      STATE.value = storage.getItem('value');
-    }
+  if (!isInit) {
+    storage.setItem('target', INIT_STATE.target);
+    storage.setItem('value', INIT_STATE.value);
+    storage.setItem('isInit', true);
+  } else {
+    STATE.target = storage.getItem('target');
+    STATE.value = storage.getItem('value');
   }
 
-  init();
-
-  const saveToStorage = () => {
-    storage.setItem('target', STATE.target);
-    storage.setItem('value', STATE.value);
-
-    return true;
-  }
-
-  const getStorage = () => {
+  const getState = () => {
     return {
-      target: storage.getItem('target'),
-      value: storage.getItem('value')
+      target: STATE.target,
+      value: STATE.value
     }
   }
 
@@ -45,13 +33,18 @@ const services = () => {
     if(STATE.value >  INIT_STATE.target) {
         STATE.value = STATE.target;
     }
+  }
 
-    storage.setItem('value', +STATE.value);
+  const saveToStorage = () => {
+    storage.setItem('target', STATE.target);
+    storage.setItem('value', STATE.value);
+
+    return true;
   }
 
   return {
     saveToStorage,
-    getStorage,
+    getState,
     setValue
   }
 }

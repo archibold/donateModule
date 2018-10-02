@@ -1,30 +1,20 @@
 import style from './index.scss';
 import services from './services.js';
 
+window.onload = () => {
+  changeProgressBar();
+}
+
 window.onGiveNow = (e) => {
-  const input = e.target.querySelector('input')
-  console.log(input.value)
+  const input = e.target.querySelector('input');
+
   services.setValue(+input.value);
-
-  const elem = document.getElementById('myBar');
-  var { target, value } = services.getStorage();
-  elem.style.width = (+value/+target)*100 + '%';
-
-  const stillNeed = document.getElementById('stillNeed');
-  stillNeed.innerHTML = +target - (+value);
-
+  changeProgressBar();
   e.preventDefault();
 }
 
 window.onSaveToStorage = (e) => {
-  const elem = document.getElementById('save-notification');
-  elem.style.cssText = "display:block";
-
-  services.saveToStorage();
-
-   setTimeout(() => {
-    elem.style.cssText = "display:none";
-  }, 2500);
+  showNotification('save-notification');
 }
 
 window.onTellYourFriends = () => {
@@ -33,32 +23,22 @@ window.onTellYourFriends = () => {
 }
 
 window.onShowInfo = () => {
-  const elem = document.getElementById('answer-notification');
-  elem.style.cssText = "display:block";
-  console.log(elem);
-   setTimeout(() => {
-    elem.style.cssText = "display:none";
-  }, 2500);
+  showNotification('answer-notification');
 }
 
-window.onload = () => {
+const changeProgressBar = () => {
   const elem = document.getElementById('myBar');
   const stillNeed = document.getElementById('stillNeed');
-  var { target, value } = services.getStorage();
+  var { target, value } = services.getState();
 
   elem.style.width = (+value/+target) * 100 + '%';
   stillNeed.innerHTML = +target - (+value);
 }
-//
-// function move() {
-//   var width = target/value;
-//   var id = setInterval(frame, 10);
-//   function frame() {
-//     if (width >= 100) {
-//       clearInterval(id);
-//     } else {
-//       width++;
-//       elem.style.width = width + '%';
-//     }
-//   }
-// }
+
+const showNotification = (elementId) => {
+  const elem = document.getElementById(elementId);
+  elem.style.cssText = "display:block";
+   setTimeout(() => {
+    elem.style.cssText = "display:none";
+  }, 2500);
+}
