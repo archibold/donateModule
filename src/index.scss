@@ -14,6 +14,50 @@ body {
 .container {
   width: 390px;
 
+  .notification {
+    position: relative;
+    background: $color-dark;
+    color: $color-white;
+    margin: 0 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    z-index: 10;
+  }
+
+  .notification-up {
+    &:after {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+
+      border-top: 10px solid $color-dark;
+      bottom: -10px;
+    }
+  }
+
+  .notification-down {
+    display: none;
+    position: absolute;
+    bottom: -80px;
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+
+      border-bottom: 10px solid $color-dark;
+      top: -10px;
+      left: 5px;
+    }
+  }
+
   .box {
     flex: 1 1 auto;
     border: 1px solid $color-grey;
@@ -24,41 +68,74 @@ body {
       width: 100%;
       background-color: $color-white;
       border: 1px solid $color-grey;
+
+      #myBar {
+        width: 0;
+        height: 15px;
+        background-color: $color-red;
+      }
     }
-    #myBar {
-      width: 0;
-      height: 15px;
-      background-color: $color-red;
-      text-align: center; /* To center it horizontally (if you want) */
-      line-height: 30px; /* To center it vertically */
-      color: white;
+
+    .content {
+      padding: 20px;
+
+      .info {
+        color: $color-red;
+        font-weight: bold;
+      }
+
+      .info-panel {
+        position: relative;
+        margin-top: 10px;
+      }
+
+      .donate-value {
+        margin-right: 10px;
+        border: 1px solid $color-grey;
+        border-radius: 5px;
+        display: inherit;
+        flex: 1;
+        overflow: hidden;
+
+        &-icon {
+          padding-left: 10px;
+          font-size: 20px;
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+        }
+
+        input {
+          border: none;
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
     }
   }
 
-  .notification {
-    position: relative;
-    background: $color-dark;
-    color: $color-white;
-    margin: 0 10px;
-    padding: 20px;
-    text-align: center;
+  .button {
+    height: 50px;
+    font-weight: bold;
+    border: none;
+    outline: none;
     border-radius: 5px;
-  }
 
-  .notification:after {
-    position: absolute;
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
+    &:hover {
+      opacity: 0.7;
+    }
 
-    border-top: 10px solid $color-dark;
-    bottom: -10px;
-  }
+    &--submit {
+      background: $color-green;
+      color: $color-white;
 
-  .donate {
-    padding: 20px;
+    }
+
+    &--normal {
+      background: $color-white;
+      color: $color-more-grey;
+      border: 1px solid $color-grey;
+    }
   }
 
   .button--link {
@@ -67,105 +144,27 @@ body {
     color: $color-blue;
     font-style: italic;
     font-size: 16px;
-
-  }
-
-  .button--success {
-    height: 50px;
-    font-weight: bold;
-    background: $color-green;
-    border: none;
-    color: $color-white;
-    border-radius: 5px;
-    outline: none;
-  }
-
-  .button--success:hover {
-    opacity: 0.7;
-  }
-
-  .button--standard {
-    height: 50px;
-    font-weight: bold;
-    background: $color-white;
-    border: none;
-    color: $color-more-grey;
-    border-radius: 5px;
-    outline: none;
-    border: 1px solid $color-grey;
-  }
-
-  .info {
-    color: $color-red;
-    font-weight: bold;
   }
 
   .flex-panel {
     display: flex;
     position: relative;
 
+    button:first-child{
+      margin-right: 10px;
+    }
+
+    button:last-child {
+      margin-left: 10px;
+    }
+
     button {
       flex: 1;
       font-size: 16px;
     }
-
-    .input {
-      border: 1px solid $color-grey;
-      border-radius: 5px;
-      display: inherit;
-      flex: 1;
-      overflow: hidden;
-
-      &-icon {
-        padding-left: 10px;
-        font-size: 20px;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-      }
-
-      input {
-        border: none;
-        font-size: 20px;
-        font-weight: bold;
-      }
-    }
-  }
-
-  .button-info-panel {
-    position: relative;
-    margin-top: 10px;
   }
 
   .button-panel {
     margin: 0 10px;
   }
-
-  .save-notification {
-    display: none;
-    position: absolute;
-    bottom: -80px;
-    background: $color-dark;
-    color: $color-white;
-    margin: 0 10px;
-    padding: 20px;
-    text-align: center;
-    border-radius: 5px;
-    z-index: 10;
-  }
-
-
-  .save-notification:after {
-    position: absolute;
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-
-    border-bottom: 10px solid $color-dark;
-    top: -10px;
-    left: 5px;
-  }
-
 }
