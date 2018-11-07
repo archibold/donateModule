@@ -15,6 +15,7 @@ window.onGiveNow = (e) => {
 }
 
 window.onSaveToStorage = (e) => {
+  services.saveToStorage();
   showNotification('save-notification');
 }
 

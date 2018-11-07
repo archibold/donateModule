@@ -5,11 +5,12 @@
     <title>Demo Donate module</title>
     <meta name="description" content="The Donate module">
     <meta name="author" content="Arkitekto">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <div class="container">
       <div class="notification notification-up">
-        <b>$<span id="stillNeed">167<span></b> still needed for this project
+        <b>$<span id="stillNeed">167</span></b> still needed for this project
       </div>
       <div class="box">
         <div id="myProgress">
@@ -21,7 +22,8 @@
           <form class="flex-panel" onsubmit="onGiveNow(event)">
             <div class="donate-value">
               <div class="donate-value-icon">$</div>
-              <input min="1" step="1" type="number" value="50"/>
+              <label for="donate-value">Donate value</label>
+              <input id="donate-value" min="1" step="1" type="number" value="50"/>
             </div>
             <button class="button button--submit" type="submit">Give Now</button>
             <div id="thank-you-notification" class="notification notification-down notification-right">Thank you</div>
